@@ -1,9 +1,10 @@
 import React from "react"
+import { BackgrounURI } from "./BackgroundPhoto";
 
 const Background: React.FC<{}> = () => <div style={style}/>
 
 const style: React.CSSProperties = {
-    backgroundImage: `url(${require("../assets/background.png")})`,
+    backgroundImage: `url(${BackgrounURI})`,
     backgroundColor: "#f2f2f2",
     width: "100%",
     height: "100%",
