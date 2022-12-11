@@ -1,29 +1,18 @@
-import { animate, motion, useMotionValue } from "framer-motion";
+import { motion } from "framer-motion";
 import React from "react";
 
 const CloseButton: React.FC<{onClose: () => void}> = ({onClose}) =>
 {
-    const lineY = useMotionValue(0);
-    const lineWidth = useMotionValue(20);
-
-    const onHoverStart = () => animate(lineWidth, 23)
-    const onHoverEnd = () => animate(lineWidth, 20)
-    const onTouchStart = () => animate(lineY, 5)
-    const onTouchEnd = () => animate(lineY, 0)
-
     return (
-        <motion.span
+        <motion.button
             style={styles.button}
             onClick={onClose}
-            onHoverStart={onHoverStart}
-            onHoverEnd={onHoverEnd}
-            onMouseDown={onTouchStart}
-            onMouseLeave={onTouchEnd}
-            onMouseUp={onTouchEnd}
+            whileTap={{translateY: 5}}
+            whileHover={{scaleX: 1.25}}
             draggable={false}
         >
-            <motion.span style={{...styles.line, width: lineWidth, translateY: lineY}}/>
-        </motion.span>
+            <motion.span style={styles.line}/>
+        </motion.button>
     )
 }
 
@@ -37,12 +26,16 @@ const styles: {[key: string]: React.CSSProperties} = {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        cursor: "pointer"
+        cursor: "pointer",
+        WebkitTapHighlightColor: "transparent",
+        borderStyle: "none",
+        backgroundColor: "transparent"
     },
     line: {
         height: 3,
         backgroundColor: "white",
         borderRadius: 5,
+        width: 20,
     }
 }
 

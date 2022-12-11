@@ -42,6 +42,6 @@ const styles: {[key: string]: React.CSSProperties} =
         width: 60,
         height: 60,
         boxShadow: "#0000007d 2px 2px 5px 0px",
-        
+        WebkitTapHighlightColor: "transparent",
     },
 }

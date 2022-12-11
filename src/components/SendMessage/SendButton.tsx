@@ -3,13 +3,14 @@ import React from "react";
 import { Icon } from "../Icons";
 
 const SendButton: React.FC<{onPress: () => void}> = ({onPress}) => (
-    <motion.div
+    <motion.button
         onClick={onPress}
         whileTap={{translateY: 5}}
         whileHover={{scale: 1.1}}
+        style={styles.button}
     >
         <Icon.SendSvg color="#37add3" style={styles.icon}/>
-    </motion.div>
+    </motion.button>
 )
 
 const styles: {[key: string]: React.CSSProperties | {[key: string]: React.CSSProperties}} = {
@@ -20,5 +21,10 @@ const styles: {[key: string]: React.CSSProperties | {[key: string]: React.CSSPro
         padding: 10,
         cursor: "pointer"
     },
+    button: {
+        borderStyle: "none",
+        backgroundColor: "transparent",
+        WebkitTapHighlightColor: "transparent",
+    }
 }
 export default SendButton;
